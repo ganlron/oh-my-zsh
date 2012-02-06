@@ -36,6 +36,6 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH
 export SVN_EDITOR='rmate -w'
-export GIT_EDITOR=ar'mate -w'
+export GIT_EDITOR='rmate -w'
 
 #eval "$(rbenv init -)"
