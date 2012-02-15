@@ -10,6 +10,9 @@ ZSH_THEME="ganlron"
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
+if which vim &> /dev/null; then
+	alias vi="vim"
+fi
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -35,7 +38,20 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH
-export SVN_EDITOR='rmate -w'
-export GIT_EDITOR='rmate -w'
+if which rmate &> /dev/null; then
+	export SVN_EDITOR='rmate -w'
+	export GIT_EDITOR='rmate -w'
+	export EDITOR='rmate -w'
+elif which vim &> /dev/null; then
+	export SVN_EDITOR='vim'
+	export GIT_EDITOR='vim'
+	export EDITOR='vim'
+else
+	export SVN_EDITOR='vi'
+	export GIT_EDITOR='vi'
+	export EDITOR='vi'
+fi
 
-#eval "$(rbenv init -)"
+if which rbenv &> /dev/null; then
+	eval "$(rbenv init -)"
+fi
